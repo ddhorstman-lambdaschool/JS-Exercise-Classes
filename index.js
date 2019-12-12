@@ -72,7 +72,12 @@ class Person {
 */
 
 class Car {
-
+  constructor(model, mpg){
+    this.tank = 0;
+    this.odometer = 0;
+    this.model = model;
+    this.milesPerGallon = mpg;
+  }
 }
 
 /*
