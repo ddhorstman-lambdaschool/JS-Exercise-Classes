@@ -192,8 +192,10 @@ class Student extends Lambdasian {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class TeamLead extends Instructor {
+  constructor(i){
+    super(i);
+  }
 }
 
 /*
@@ -216,5 +218,5 @@ if (typeof exports !== 'undefined') {
   if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
   if (Instructor) { module.exports.Instructor = Instructor }
   if (Student) { module.exports.Student = Student }
-  if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
+  if (TeamLead) { module.exports.TeamLead = TeamLead }
 }

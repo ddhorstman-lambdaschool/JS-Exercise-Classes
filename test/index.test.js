@@ -146,7 +146,7 @@ const studentAttr = {
   className: 'WebEU 3',
   favSubjects: ['JS', 'Node', 'Redux']
 }
-const projectManagerAttr = {
+const teamLeadAttr = {
   name: 'Dan',
   age: 35,
   location: 'San Francisco',
@@ -265,52 +265,52 @@ describe('Instances of Student', () => {
   })
 })
 
-describe('Instance of ProjectManager', () => {
-  let pm
+describe('Instance of TeamLead', () => {
+  let tl
   beforeEach(() => {
-    pm = new results.ProjectManager(projectManagerAttr)
+    tl = new results.TeamLead(teamLeadAttr)
   })
   it('[1] initializes with all the fields instructors have', () => {
-    expect(pm.name).to.equal(projectManagerAttr.name)
-    expect(pm.age).to.equal(projectManagerAttr.age)
-    expect(pm.location).to.equal(projectManagerAttr.location)
-    expect(pm.specialty).to.equal(projectManagerAttr.specialty)
-    expect(pm.favLanguage).to.equal(projectManagerAttr.favLanguage)
-    expect(pm.catchPhrase).to.equal(projectManagerAttr.catchPhrase)
+    expect(tl.name).to.equal(teamLeadAttr.name)
+    expect(tl.age).to.equal(teamLeadAttr.age)
+    expect(tl.location).to.equal(teamLeadAttr.location)
+    expect(tl.specialty).to.equal(teamLeadAttr.specialty)
+    expect(tl.favLanguage).to.equal(teamLeadAttr.favLanguage)
+    expect(tl.catchPhrase).to.equal(teamLeadAttr.catchPhrase)
   })
   it('[2] initializes with the given gradClassName', () => {
-    expect(pm.gradClassName).to.equal(projectManagerAttr.gradClassName)
+    expect(tl.gradClassName).to.equal(teamLeadAttr.gradClassName)
   })
   it('[3] initializes with the given favInstructor', () => {
-    expect(pm.favInstructor).to.equal(projectManagerAttr.favInstructor)
+    expect(tl.favInstructor).to.equal(teamLeadAttr.favInstructor)
   })
   it('[4] has a speak method that works', () => {
-    expect(pm.__proto__.speak).to.be.not.undefined;
-    expect(pm.speak()).to.include(projectManagerAttr.name);
-    expect(pm.speak()).to.include(projectManagerAttr.location);
+    expect(tl.__proto__.speak).to.be.not.undefined;
+    expect(tl.speak()).to.include(teamLeadAttr.name);
+    expect(tl.speak()).to.include(teamLeadAttr.location);
   })
   it('[5] has a demo method that works', () => {
-    expect(pm.__proto__.demo).to.be.not.undefined;
-    expect(pm.demo('redux')).to.include('redux');
+    expect(tl.__proto__.demo).to.be.not.undefined;
+    expect(tl.demo('redux')).to.include('redux');
   })
   it('[6] has a grade method that works', () => {
-    expect(pm.__proto__.grade).to.be.not.undefined;
-    expect(pm.grade({ name: 'petar' }, 'redux')).to.include('redux');
-    expect(pm.grade({ name: 'petar' }, 'redux')).to.include('petar');
+    expect(tl.__proto__.grade).to.be.not.undefined;
+    expect(tl.grade({ name: 'petar' }, 'redux')).to.include('redux');
+    expect(tl.grade({ name: 'petar' }, 'redux')).to.include('petar');
   })
   it('[7] has a standUp method', () => {
-    expect(pm.__proto__.standUp).to.be.not.undefined;
+    expect(tl.__proto__.standUp).to.be.not.undefined;
   })
   it('[8] can standUp correctly', () => {
-    expect(pm.standUp('eu3')).to.include(projectManagerAttr.name);
-    expect(pm.standUp('eu3')).to.include('eu3');
+    expect(tl.standUp('eu3')).to.include(teamLeadAttr.name);
+    expect(tl.standUp('eu3')).to.include('eu3');
   })
   it('[9] has a debugsCode method', () => {
-    expect(pm.__proto__.debugsCode).to.be.not.undefined;
+    expect(tl.__proto__.debugsCode).to.be.not.undefined;
   })
   it('[10] can debugsCode correctly', () => {
-    const result = pm.debugsCode({ name: 'Luke' }, 'redux');
-    expect(result).to.include(projectManagerAttr.name);
+    const result = tl.debugsCode({ name: 'Luke' }, 'redux');
+    expect(result).to.include(teamLeadAttr.name);
     expect(result).to.include('Luke');
     expect(result).to.include('redux');
   })
