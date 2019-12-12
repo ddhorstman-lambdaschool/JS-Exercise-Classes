@@ -107,10 +107,10 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  constructor(input){
-    this.name = input.name;
-    this.age = input.age;
-    this.location = input.location;
+  constructor(personalInformation){
+    this.name = personalInformation.name;
+    this.age = personalInformation.age;
+    this.location = personalInformation.location;
   }
   speak(){
     return `Hello my name is ${this.name}, I am from ${this.location}`;
@@ -132,11 +132,11 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian {
-  constructor(input){
-    super(input);
-    this.specialty = input.specialty;
-    this.favLanguage = input.favLanguage;
-    this.catchPhrase = input.catchPhrase;
+  constructor(personalInformation){
+    super(personalInformation);
+    this.specialty = personalInformation.specialty;
+    this.favLanguage = personalInformation.favLanguage;
+    this.catchPhrase = personalInformation.catchPhrase;
   }
   demo(subject){
     return `Today we are learning about ${subject}`;
@@ -161,8 +161,22 @@ class Instructor extends Lambdasian {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian {
+  constructor(personalInformation){
+    super(personalInformation);
+    this.previousBackground = personalInformation.previousBackground;
+    this.className = personalInformation.className;
+    this.favSubjects = personalInformation.favSubjects;
+  }
+  listSubjects(){
+    return this.favSubjects.join(", ");
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`
+  }
 }
 
 /*
