@@ -170,7 +170,8 @@ class Instructor extends Lambdasian {
     - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
     - Add a graduate method to a student.
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-      + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
+      + If the student's grade is above a 70% return a sentence letting them graduate!
+      + Otherwise, return nothing. Go back to grading their assignments to increase their score.
 */
 class Student extends Lambdasian {
   constructor(personalInformation){
@@ -178,7 +179,7 @@ class Student extends Lambdasian {
     this.previousBackground = personalInformation.previousBackground;
     this.className = personalInformation.className;
     this.favSubjects = personalInformation.favSubjects;
-    this.grade = Lambdasian.randomInt(100);
+    this.grade = personalInformation.grade;
   }
   listSubjects(){
     return this.favSubjects.join(", ");
@@ -188,6 +189,11 @@ class Student extends Lambdasian {
   }
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}`
+  }
+  graduate(){
+    if(this.grade>70){
+      return `Congratulations, you graduated!`;
+    }
   }
 }
 

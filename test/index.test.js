@@ -144,7 +144,17 @@ const studentAttr = {
   location: 'London',
   previousBackground: 'Plumber',
   className: 'WebEU 3',
-  favSubjects: ['JS', 'Node', 'Redux']
+  favSubjects: ['JS', 'Node', 'Redux'],
+  grade:95
+}
+const failingStudentAttr = {
+  name: 'Matt',
+  age: 30,
+  location: 'London',
+  previousBackground: 'Plumber',
+  className: 'WebEU 3',
+  favSubjects: ['JS', 'Node', 'Redux'],
+  grade: 65
 }
 const teamLeadAttr = {
   name: 'Dan',
@@ -313,5 +323,32 @@ describe('Instance of TeamLead', () => {
     expect(result).to.include(teamLeadAttr.name);
     expect(result).to.include('Luke');
     expect(result).to.include('redux');
+  })
+})
+
+describe('STRETCH Instance of Student', () => {
+  let student
+  beforeEach(() => {
+    student = new results.Student(studentAttr)
+    
+  })
+  it('[1] initializes with a grade attribute', () => {
+    expect(student.grade).to.not.be.undefined;
+  })
+})
+describe('STRETCH Instance of Student', () => {
+  let student
+  let failingStudent
+  beforeEach(() => {
+    student = new results.Student(studentAttr)
+    failingStudent = new results.Student(failingStudentAttr)
+  })
+  it('[3] has a graduate method that works', () => {
+    expect(student.__proto__.graduate).to.not.be.undefined;
+    expect(student.graduate()).to.not.be.undefined;
+  })
+  it('[4] requires at least a 70 to graduate', () => {
+    expect(failingStudent.__proto__.graduate).to.not.be.undefined;
+    expect(failingStudent.graduate()).to.equal(undefined);
   })
 })
