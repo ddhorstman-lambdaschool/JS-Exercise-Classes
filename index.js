@@ -115,9 +115,6 @@ class Lambdasian {
   speak(){
     return `Hello my name is ${this.name}, I am from ${this.location}`;
   }
-  static randomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
 }
 
 /*
@@ -141,10 +138,19 @@ class Instructor extends Lambdasian {
     this.favLanguage = personalInformation.favLanguage;
     this.catchPhrase = personalInformation.catchPhrase;
   }
+  /**
+   * @param {number} min the smallest number in the range
+   * @param {number} max the largest number in the range
+   * @returns a random number between min and max
+   */ 
+  static randomRange(min,max){
+    return Math.random() * (max - min) + min;
+  }
   demo(subject){
     return `Today we are learning about ${subject}`;
   }
   grade(student, subject){
+    student.grade += Instructor.randomRange(-5,5);
     return `${student.name} receives a perfect score on ${subject}`;
   }
 }
@@ -164,15 +170,7 @@ class Instructor extends Lambdasian {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-/*
-  STRETCH PROBLEM (no tests!)
-    - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
-    - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
-    - Add a graduate method to a student.
-      + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-      + If the student's grade is above a 70% return a sentence letting them graduate!
-      + Otherwise, return nothing. Go back to grading their assignments to increase their score.
-*/
+
 class Student extends Lambdasian {
   constructor(personalInformation){
     super(personalInformation);
@@ -223,7 +221,16 @@ class TeamLead extends Instructor {
     return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
 }
-
+/*
+  STRETCH PROBLEM (I wrote some tests!)
+    - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+    - Now that our students have a grade build out the grade method on the Instructor (this will be used by _BOTH_ instructors and PM's)
+      to randomly add or subtract points to a student's grade. _Math.random_ will help.
+    - Add a graduate method to a student.
+      + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+      + If the student's grade is above a 70% return a sentence letting them graduate!
+      + Otherwise, return nothing. Go back to grading their assignments to increase their score.
+*/
 
 
 ///////// END OF CHALLENGE /////////

@@ -326,7 +326,7 @@ describe('Instance of TeamLead', () => {
   })
 })
 
-describe('STRETCH Instance of Student', () => {
+describe('STRETCH  A Student', () => {
   let student
   beforeEach(() => {
     student = new results.Student(studentAttr)
@@ -334,11 +334,24 @@ describe('STRETCH Instance of Student', () => {
   })
   it('[1] initializes with a grade attribute', () => {
     expect(student.grade).to.not.be.undefined;
+    expect(student.grade).to.be.a('number');
   })
 })
-describe('STRETCH Instance of Student', () => {
-  let student
-  let failingStudent
+describe('STRETCH Instructor', () => {
+  let student, instructor, originalGrade
+  beforeEach(() => {
+    student = new results.Student(studentAttr)
+    instructor = new results.Instructor(instructorAttr)
+    originalGrade = student.grade;
+    instructor.grade(student, 'JS IV');
+  })
+  it('[2] can change a student\'s grade', () => {
+    expect(student.grade).to.not.be.undefined;
+    expect(student.grade).to.not.equal(originalGrade);
+  })
+})
+describe('STRETCH  A Student', () => {
+  let student, failingStudent
   beforeEach(() => {
     student = new results.Student(studentAttr)
     failingStudent = new results.Student(failingStudentAttr)
