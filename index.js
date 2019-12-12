@@ -78,6 +78,9 @@ class Car {
     this.model = model;
     this.milesPerGallon = mpg;
   }
+  fill(gallons){
+    this.tank+=gallons;
+  }
 }
 
 /*
