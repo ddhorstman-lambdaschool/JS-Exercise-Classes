@@ -115,6 +115,9 @@ class Lambdasian {
   speak(){
     return `Hello my name is ${this.name}, I am from ${this.location}`;
   }
+  static randomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
 }
 
 /*
@@ -161,12 +164,21 @@ class Instructor extends Lambdasian {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
+/*
+  STRETCH PROBLEM (no tests!)
+    - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+    - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+    - Add a graduate method to a student.
+      + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+      + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
+*/
 class Student extends Lambdasian {
   constructor(personalInformation){
     super(personalInformation);
     this.previousBackground = personalInformation.previousBackground;
     this.className = personalInformation.className;
     this.favSubjects = personalInformation.favSubjects;
+    this.grade = Lambdasian.randomInt(100);
   }
   listSubjects(){
     return this.favSubjects.join(", ");
@@ -206,14 +218,7 @@ class TeamLead extends Instructor {
   }
 }
 
-/*
-  STRETCH PROBLEM (no tests!)
-    - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
-    - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
-    - Add a graduate method to a student.
-      + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-      + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
-*/
+
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////

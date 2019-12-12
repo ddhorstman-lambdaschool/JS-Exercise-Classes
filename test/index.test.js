@@ -217,7 +217,7 @@ describe('Instance of Instructor', () => {
   })
 })
 
-describe('Instances of Student', () => {
+describe('Instance of Student', () => {
   let student
   beforeEach(() => {
     student = new results.Student(studentAttr)
